@@ -14,6 +14,12 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 }
 
 // ========================
+// Custom Home and Site URL
+// ========================
+define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/');
+define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/');
+
+// ========================
 // Custom Content Directory
 // ========================
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
@@ -48,32 +54,15 @@ $table_prefix  = 'wp_';
 // Language
 // Leave blank for American English
 // ================================
-define( 'WPLANG', '' );
+define( 'WPLANG', 'nl_NL' );
 
 // ===========
 // Hide errors
 // ===========
-ini_set( 'display_errors', 0 );
-define( 'WP_DEBUG_DISPLAY', false );
-
-// =================================================================
-// Debug mode
-// Debugging? Enable these. Can also enable them in local-config.php
-// =================================================================
-// define( 'SAVEQUERIES', true );
-// define( 'WP_DEBUG', true );
-
-// ======================================
-// Load a Memcached config if we have one
-// ======================================
-if ( file_exists( dirname( __FILE__ ) . '/memcached.php' ) )
-	$memcached_servers = include( dirname( __FILE__ ) . '/memcached.php' );
-
-// ===========================================================================================
-// This can be used to programatically set the stage when deploying (e.g. production, staging)
-// ===========================================================================================
-define( 'WP_STAGE', '%%WP_STAGE%%' );
-define( 'STAGING_DOMAIN', '%%WP_STAGING_DOMAIN%%' ); // Does magic in WP Stack to handle staging domain rewriting
+if ( ! WP_LOCAL_DEV ) {
+	ini_set( 'display_errors', 0 );
+	define( 'WP_DEBUG_DISPLAY', false );
+}
 
 // ===================
 // Bootstrap WordPress
