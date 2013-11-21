@@ -4,3 +4,12 @@
 /db-sync
 /content/upgrade/
 .DS_Store
+.idea
+/content/debug.log
+/content/plugins/what-the-file/
+/content/plugins/debug-bar/
+/content/plugins/regenerate-thumbnails/
+/content/plugins/bulk-delete/
+/content/plugins/wp-migrate-db/
+/content/plugins/wp-migrate-db-pro/
+
